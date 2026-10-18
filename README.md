@@ -2,59 +2,93 @@
 
 An ultra-sleek, professional trading performance system and trade journal designed for prop firm traders, fund managers, and retail trading desks.
 
-## Key Features
+---
 
-1. **Mandatory Master Admin Registration Approval**
-   - **Gated Access**: When any new user registers on the website, their account status is set to `PENDING APPROVAL`.
-   - **Pending Verification Screen**: The user cannot enter the terminal immediately; they are notified that their account is awaiting review by the Desk Administrator.
-   - **Master Admin Approval Desk**:
-     - The Master Admin sees a live counter of **Pending Approvals** on the admin desk.
-     - Master Admin can grant terminal access with **`✓ Approve`** or decline with **`✕ Decline`**.
-     - Once approved, the trader can immediately sign in to their dashboard.
+## 🌟 11 New Core Features
 
-2. **Monthly Daily Performance & Win/Loss Tracking**
-   - **Day-by-Day Analysis**: See whether your trading days throughout the month were **PROFIT** (green), **LOSS** (red), or **BREAK EVEN** (amber).
-   - **Monthly Statistics**: Green days vs red days count, profitable day win rate %, and best day realized P&L.
-   - **Motto of Consistency**: Prominently features the golden emblem and reminder:
-     > **"DISCIPLINE IS YOUR CROWN"**
-     > *Daily consistency beats sporadic luck • Protect your crown every single day*
+### 1. Multi-Device Server-Side Storage (`server.py` + SQLite)
+- **True Multi-Device Access**: Accounts, journals, trade executions, profile settings, feedback, and surveys are saved directly on the server database (`atlas_data.db`) rather than isolated in `localStorage`.
+- **Cross-Device Continuity**: Log in from your PC, Mac, tablet, or phone — your data, open accounts, and journal are always synchronized.
+- **Graceful Fallback**: If the server is offline, intelligent local caching ensures seamless uninterrupted operation.
 
-3. **Bulk Actions in Trade Journal**
-   - Select multiple trade positions with checkboxes or "Select All".
-   - **Change Status Simultaneously**: Batch update all selected trades to `PROFIT`, `LOSS`, `BREAK EVEN` (zeros P&L automatically), or `OPEN`.
-   - **Bulk Delete**: Permanently delete multiple trade executions at once with confirmation.
+### 2. Share PnL as High-Definition Image
+- **Instant PnL Card Generator**: Click the **📸 Share PnL** button in the dashboard hero card to generate a broadcast-quality institutional graphic.
+- **Features**: Glowing realized P&L typography, win rate %, profit factor, total lots, trader avatar, verified execution watermark, and the golden *"DISCIPLINE IS YOUR CROWN"* emblem.
+- **Actions**: One-click **Download PNG** or **Copy Image to Clipboard** ready for Twitter/X, Discord, Instagram, and Telegram.
 
-4. **Lot Size Execution Management**
-   - R:R has been replaced with actual **Lot Size** (Lots).
-   - Enter lot size per execution (e.g. `1.00 Lot`, `0.50 Lot`, `2.50 Lots`).
-   - Track **Total Lots Traded** and **Average Lot Size** in the dashboard and analytics.
+### 3. MetaTrader 4 & MetaTrader 5 Sync Hub
+- **Direct Statement Import**: Drag & drop or upload detailed HTML/CSV reports exported from MetaTrader 4 or MetaTrader 5. Automatically parses ticket numbers, open/close times, symbols, lot sizes, and realized profit into your journal.
+- **Live Broker Bridge**: Connect your MT4/MT5 Broker Server, Account Number, and Read-Only Investor Password for automated synchronization.
+- **Quick Test Sync**: Simulate pulling realistic verified executions from MetaTrader with 1-click.
 
-5. **Multi-Account Isolation & Account Deletion**
-   - **Strict Account Isolation**: Every trading account maintains its own completely independent trade journal, metrics, equity curve, and daily performance calendar.
-   - **Account Deletion**: Delete unused trading accounts and their associated trades with a single click.
-   - **Account Switcher**: Switch smoothly between accounts (Apex 150K, FTMO Challenge, Personal Broker, etc.) with instant recalculation.
+### 4. Trader Profile Customization
+- **Profile Photo & Avatar**: Upload custom profile photos (with circular avatar display) or select from institutional badges (🦁, 🐂, 🦅, 🐺, 💎, 👑).
+- **Edit Username & Callsign**: Update your trader display name, callsign, and trading style/bio on the fly.
+- **Persistent Sync**: Changes update across headers, share cards, and persist directly to the server.
 
-6. **Discrete Master Admin Desk**
-   - **Completely Hidden & Private**: There is zero public mention or footprint of the Master Admin role anywhere on the login screen or regular trader views.
-   - **Full Platform Oversight**: When the Master Admin authenticates, the exclusive Master Admin Desk unlocks.
-   - **Cross-Trader Monitoring & Inspection**: Monitor all registered traders and their live desks.
-   - **Trader Account Deletion & Suspension**: Master Admin can permanently delete or suspend rogue trader accounts.
+### 5 & 6. Multilingual Engine (11 Languages)
+- **11 Native Languages Supported**:
+  1. 🇬🇧 English (`en`)
+  2. 🇮🇩 Bahasa Indonesia (`id`)
+  3. 🇲🇾 Bahasa Melayu (`ms`)
+  4. 🇩🇪 Deutsch (`de`)
+  5. 🇫🇷 Français (`fr`)
+  6. 🇪🇸 Español (`es`)
+  7. 🇮🇹 Italiano (`it`)
+  8. 🇨🇳 简体中文 (`zh`)
+  9. 🇯🇵 日本語 (`ja`)
+  10. 🇹🇭 ภาษาไทย (`th`)
+  11. 🇸🇦 العربية (`ar` - with native RTL typography!)
+- **Accessible Everywhere**: Switch languages directly on the **Sign In / Register screen** or at any time from the **Top Header** without logging out.
 
-7. **Interactive Trade Status Workflow**
-   - Change individual trade status anytime directly from the journal table:
-     - `PROFIT` (Wins)
-     - `LOSS` (Losses)
-     - `BREAK EVEN` (Zeros P&L to $0.00 automatically)
-     - `OPEN` (Live position)
+### 7. Post-Registration Onboarding Questionnaire
+- When a new trader creates an account, an interactive survey modal is presented:
+  1. *What is your primary trading goal?* (Prop firm funding, full-time independent, discipline & psychology, strategy validation)
+  2. *How did you discover Atlas Trade?* (Trader mentor referral, YouTube, Discord/Telegram, TradingView)
+  3. *What is your trading profit target & milestone?* (Consistent $1K-$3K/month, pass $100K challenge, $10,000+ net gain)
+- Saved to server and viewable by the Super Admin in the Master Admin Desk.
 
-8. **Institutional English Interface**
-   - 100% in native English.
-   - Multi-currency support: USD ($), EUR (€), GBP (£), IDR (Rp).
+### 8. Multi-Theme Engine (5 Themes)
+- Not just dark and light — switch instantly between:
+  1. **Default** ✨: Atlas Signature Obsidian Gold & Cyan.
+  2. **Classic** 🏛️: Wall Street / Bloomberg Terminal (Slate charcoal with warm amber accents).
+  3. **Deep** 🌌: Deep Midnight OLED & Cyber Sapphire Blue.
+  4. **Dark** 🌑: Carbon Graphite Minimalist.
+  5. **Light** ☀️: Crisp Institutional Clean Ivory.
 
-## Quick Start
+### 9. Top-Bar Share Feedback (Super Admin Only Desk)
+- Traders can click **💬 Feedback** in the top navigation bar to submit a rating (1-5 stars), feedback category, and suggestions.
+- Shows instant confirmation toast: **"thanks for your feedback"**.
+- **Super Admin Oversight**: Only the Master Admin (`satriatrader1@gmail.com`) can inspect and review trader feedback submissions from the dedicated **Trader Feedback Desk**.
 
-Open `index.html` directly in your browser or run a local server:
+### 10. Trade Reflection Notes in Journal
+- **Notes & Reflections Column**: Added to the Trade Journal table with clickable preview badges (`📝 View / Add Note`).
+- **Interactive Note Drawer**: Read and write detailed setup rationale, emotional state, technical triggers, and lessons learned.
+- **Searchable**: Search through trade notes directly from the journal search filter.
+
+### 11. Trader Achievements & Milestone Accolades
+- Dedicated **🏆 Achievements** desk tracking institutional milestones:
+  - 🥉 **100 Dollar Pertama**: First $100 in realized net trading profit.
+  - 🥈 **1000 Dollar Pertama**: Surpassing $1,000 cumulative profit.
+  - 🥇 **High Roller Club ($10,000)**: Elite portfolio milestone.
+  - 🎯 **First Blood**: Logging your first verified trade.
+  - 👑 **Discipline Crown**: Achieving a 5-day profitable winning streak.
+  - 🛡️ **Risk Sovereign**: Maintaining 60%+ win rate over 5+ executions.
+  - 📜 **Master Journalist**: Logging notes on 5+ trades.
+  - ⚡ **Centurion Desk**: Executing 50 verified trades.
+- **Official Award Certificate**: Unlocked achievements feature a **View Official Award Certificate** button that renders a certificate canvas ready for download or sharing.
+
+---
+
+## 🚀 Quick Start
+
+Start the Python backend server:
 ```bash
-python3 -m http.server 4173
+python3 server.py
 ```
-Then visit `http://localhost:4173`.
+Then visit `http://localhost:8000` in any web browser on your computer, tablet, or phone!
+
+### Default Credentials
+- **Master Admin Email**: `satriatrader1@gmail.com`
+- **Master Admin Password**: `satria308`
+- **Sample Trader**: `alex.turner@alphatrading.com` / `password123`
